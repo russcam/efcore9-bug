@@ -3,6 +3,8 @@
 This repository is a minimal repo of a bug in EF Core 9 related to the use of an encrypted attribute to apply a convention to encrypt
 attributed properties in the EF model when persisting to the DB, and to descrypt when hydrating from DB.
 
+Bug reported at https://github.com/dotnet/efcore/issues/34934
+
 To repro
 
 ```sh
