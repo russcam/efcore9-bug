@@ -7,7 +7,7 @@ To repro
 
 ```sh
 dotnet restore
-dotnet run
+dotnet run --project EFCore9Bug
 ```
 
 results in the exception
