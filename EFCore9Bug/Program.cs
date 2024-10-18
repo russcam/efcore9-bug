@@ -19,16 +19,24 @@ using (var scope = serviceProvider.CreateScope())
     await db.Database.EnsureDeletedAsync();
     await db.Database.EnsureCreatedAsync();
     
-    var encryptedValues = await db.Users
+    var alice = await db.Users
+        .AsNoTracking()
+        .Where(u => u.UserId == 1)
+        .FirstAsync();
+    
+    Console.WriteLine($"Username: {alice.Username} encrypted value: {alice.Encrypted}");
+    
+    var users = await db.Users
         .AsNoTracking()
         .Select(u => new 
         {
+            Username = u.Username,
             Encrypted = u.Encrypted,
         })
         .ToListAsync();
     
-    foreach (var encryptedValue in encryptedValues)
+    foreach (var user in users)
     {
-        Console.WriteLine($"{encryptedValue.Encrypted}");
+        Console.WriteLine($"Username: {user.Username} encrypted value: {user.Encrypted}");
     }
 }

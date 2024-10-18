@@ -69,3 +69,4 @@ packages/
 
 #Project specific
 .idea/
+app.db
