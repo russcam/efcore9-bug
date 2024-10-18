@@ -26,3 +26,5 @@ that occurs in the `.ToListAsync()` call.
 
 It _looks_ like the problem is in the `.Select(...)` projection and specifically the projection of the property that has the Encryption value converter;
 If the `Encrpyted` property is removed from the projection, it succeeds.
+
+No exception is observed with 8.0.10 EF dependencies
